@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Cá CSS3</title>
+    <meta charset="utf-8">
+    
+
+    <head>
+
+    <!--BẮT ĐẦU CSS-->    
+    <style>
+
+
+        body {
+            /* https://i.pinimg.com/736x/b3/ea/9b/b3ea9b3ab1af6d9190a15c26108ed025.jpg (Background 1)*/ 
+           /*https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/13/9857a3f832287ab.jpg (Background 2)*/
+           
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/13/9857a3f832287ab.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #background {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+       /*Cua*/
+
+        #crab{
+            position: absolute;
+            left: 10px;
+            top: 500px;
+            animation-name: crab;
+            animation: crab 10s infinite alternate ;
+            animation-timing-function:cubic-bezier(0.7, 0.8, 0.5, 0.8);
+           }
+         @keyframes crab {
+            from { left:50px ;}
+            to{left: 1200px;}  
+         }
+           
+
+        /*Cá mập*/
+
+        #shark {
+            position: absolute;
+            width: 298px;
+            height: 149px; 
+            animation:  Shark 17s linear infinite;
+            }
+        @keyframes Shark
+
+{
+	0%   {left:1000px; top:100px;transform: rotateY(180deg)}
+	10%   {left:900px; top:120px;transform: rotateX(360deg)}
+	20%  {left:800px; top:150px;transform: rotateX(0deg)}
+	40%  {left:600px; top:170px;transform: rotateY(0deg) }
+	60%  {left:500px; top:200px;transform: rotateY(180deg) }
+	90%  {left:900px; top:230px;transform: rotateY(180deg) }
+	100% {left:1000px; top:200px;transform: rotateY(180deg) }
+	
+}
+
+       
+     
+/*Thợ lặn*/
+
+    #diver{
+        position: absolute;
+        animation-name: diver;
+        position: absolute;
+	    left: 10px;top: 400px;
+	    width: 200px; height: 147px;
+	    animation-duration: 8s;
+        animation-iteration-count: infinite;
+	 }
+     @keyframes diver  {
+        0%   {left:100px; top:400px;transform: rotateY(0deg);}
+	20%  {left:200px; top:350px;transform: rotateY(0deg)}
+	40%  {left:350px; top:370px ;transform: rotateY(0deg)}
+	60%  {left:390px; top:410px;transform: rotateY(0deg) }
+    70%  {left:400px; top:420px;transform: rotateY(180deg) }
+	80%  {left:220px; top:450px;transform: rotateY(180deg) }
+	100% {left:100px; top:400px;transform: rotateY(180deg)}  
+}
+
+       /*Rùa*/
+       #rua{
+        position:absolute;
+        animation: rùa 10s linear infinite ;
+       }
+      
+@keyframes rùa {
+    0%   {left:10px; top:50px;transform: rotateY(180deg); transition-duration: 0.5s;}
+	20%  {left:100px; top:80px;transform: rotateY(0deg)}
+	40%  {left:300px; top:120px;transform: rotateY(0deg)  }
+	60%  {left:450px; top:130px;transform: rotateY(0deg) }
+	80%  {left:300px; top:120px;transform: rotateY(180deg)  }
+	100% {left:10px; top:50px;transform: rotateY(180deg)}
+}
+
+/*Cá Nemo*/
+#nemo{
+    position: absolute;
+    animation: nemo 10s linear infinite;
+}
+@keyframes nemo {
+    0%   {left:10px; top:500px;}
+	20%  {left:50px; top:400px;}
+	40%  {left:70px; top:300px  }
+	60%  {left:100px; top:200px; }
+	80%  {left:120px; top:100px; }
+	100% {left:50px; top:10px; transform: scaleX(1); }
+    
+}
+
+    </style>
+<!--KẾT THÚC CSS-->
+</head>
+
+
+
+<body>
+
+<div id="background">
+    <div id="shark"><img src="https://img1.picmix.com/output/stamp/normal/6/6/6/3/1523666_77eb7.gif" width="298" height="149" alt="Shark Image"></div>
+<div id="crab"><img src="https://img1.picmix.com/output/stamp/normal/7/2/0/3/1543027_c17b2.gif" alt="Crab" width="110px" height="110px"></div>
+<div id="diver"><img src="https://img1.picmix.com/output/stamp/normal/7/0/2/4/1654207_314fd.gif" width="200px" height="200px" alt=""></div>
+<div id="rua"><img src="https://img1.picmix.com/output/stamp/normal/6/9/4/7/467496_17985.gif" alt=""></div>
+<div id="nemo"><img src="https://66.media.tumblr.com/57fac5ed73ee1d52eec0f630dd3cfcd1/tumblr_mktp5v0B2Z1rfjowdo1_500.gif" width="150px" height="75px" alt=""></div>
+
+
+<!--NỀN AUTO-->
+<script>
+    var body = document.body;
+    var images = ['https://i.pinimg.com/736x/b3/ea/9b/b3ea9b3ab1af6d9190a15c26108ed025.jpg', 'https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/13/9857a3f832287ab.jpg'];
+    var currentImage = 0;
+    
+    function changeBackground() {
+        body.style.backgroundImage = 'url(' + images[currentImage] + ')';
+        currentImage = (currentImage + 1) % images.length;
+    }
+    
+    setInterval(changeBackground, 1000); // Thay đổi hình nền sau mỗi 1 giây
+    </script>
+<!--KẾT THÚC NỀN AUTO-->
+
+
+<!--MUSIC AUTO PLAY-->
+
+<audio id="myAudio" controls >
+    <source src="song1.mp3" type="audio/mpeg">
+    <source src="song2.mp3" type="audio/mpeg">
+    <source src="song3.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ thẻ audio.
+  </audio>
+  
+  <script>
+  var audio = document.getElementById("myAudio");
+  var sources = audio.getElementsByTagName('source');
+  var currentSong = 0;
+  
+  audio.addEventListener('ended', function () {
+      currentSong++;
+      if(currentSong == sources.length) currentSong = 0;
+      audio.src = sources[currentSong].src;
+      audio.play();
+  }, false);
+  </script>
+<!--KẾT THÚC MUSIC AUTO PLAY-->
+  
+
+</body>
+</html>
